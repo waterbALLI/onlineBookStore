@@ -1,0 +1,241 @@
+[
+    {
+        "id": "000000001",
+        "title": "《三体》",
+        "author": "刘慈欣",
+        "category": "科幻文学",
+        "price": 49.99,
+        "publishDate": "2021-03-15",
+        "image": "./images/books/three-body.jpg",
+        "description": "《三体》是刘慈欣创作的系列长篇科幻小说，讲述了地球人类文明和三体文明的信息交流、生死搏杀及两个文明在宇宙中的兴衰历程。作品以恢弘的笔触展现了人类面对宇宙灾难时的种种反应，并荣膺第73届雨果奖最佳长篇小说奖。"
+    },
+    {
+        "id": "000000002",
+        "title": "《局外人》",
+        "author": "阿尔贝·加缪",
+        "category": "经典文学",
+        "price": 32.50,
+        "publishDate": "2020-04-10",
+        "image": "./images/books/stranger.jpg",
+        "description": "加缪的成名作，讲述主人公默尔索对母亲去世的冷漠反应，以及在意外杀人后被审判的故事。小说深刻探讨了存在主义哲学，通过主人公的疏离状态揭示了现代社会的荒诞本质。"
+    },
+    {
+        "id": "000000003",
+        "title": "《人类简史》",
+        "author": "尤瓦尔·赫拉利",
+        "category": "历史",
+        "price": 68.00,
+        "publishDate": "2019-01-01",
+        "image": "./images/books/sapiens.jpg",
+        "description": "从认知革命到科学革命，本书以独特的视角重新解读人类发展史。作者将生物学、历史学和社会学熔于一炉，揭示智人如何成为地球的主宰，并对未来人类演化提出深刻思考。"
+    },
+    {
+        "id": "000000004",
+        "title": "《百年孤独》",
+        "author": "加西亚·马尔克斯",
+        "category": "经典文学",
+        "price": 45.00,
+        "publishDate": "2018-06-01",
+        "image": "./images/books/hundred-years.jpg",
+        "description": "魔幻现实主义文学代表作，讲述布恩迪亚家族七代人的传奇故事。通过马孔多小镇的兴衰，展现拉丁美洲百年历史画卷，作品充满瑰丽想象与深刻隐喻。"
+    },
+    {
+        "id": "000000005",
+        "title": "《Python编程：从入门到实践》",
+        "author": "埃里克·马瑟斯",
+        "category": "计算机",
+        "price": 89.90,
+        "publishDate": "2022-09-01",
+        "image": "./images/books/python-crash-course.jpg",
+        "description": "经典的Python编程入门教材，涵盖基础知识到项目实践。通过数据可视化、Web应用和游戏开发等实例，帮助读者从零基础成长为能够独立开发的程序员。"
+    },
+    {
+        "id": "000000006",
+        "title": "《活着》",
+        "author": "余华",
+        "category": "当代文学",
+        "price": 36.80,
+        "publishDate": "2020-04-10",
+        "image": "./images/books/to-live.jpg",
+        "description": "通过农民福贵跌宕起伏的一生，展现中国二十世纪的社会变迁。作品以平实有力的笔触，讲述生存的苦难与坚韧，探讨生命的终极意义。"
+    },
+    {
+        "id": "000000007",
+        "title": "《小王子》",
+        "author": "圣埃克苏佩里",
+        "category": "儿童文学",
+        "price": 25.00,
+        "publishDate": "2019-01-01",
+        "image": "./images/books/little-prince.jpg",
+        "description": "世界经典童话，讲述来自B-612星球的小王子在星际旅行中的见闻。通过孩童的视角探讨爱情、友谊与责任，充满诗意哲理和治愈力量。"
+    },
+    {
+        "id": "000000009",
+        "title": "《追风筝的人》",
+        "author": "卡勒德·胡赛尼",
+        "category": "外国文学",
+        "price": 42.00,
+        "publishDate": "2022-05-20",
+        "image": "./images/books/kite-runner.jpg",
+        "description": "阿米尔与哈桑的友情跨越阶级与战火，在风筝大赛中展开的救赎之旅。为你，千千万万遍的承诺穿透时空。"
+    },
+    {
+        "id": "000000008",
+        "title": "《时间简史》",
+        "author": "史蒂芬·霍金",
+        "category": "科普",
+        "price": 55.00,
+        "publishDate": "2018-06-01",
+        "image": "./images/books/brief-history-time.jpg",
+        "description": "霍金最具影响力的科普著作，用通俗语言讲解宇宙起源、黑洞和时间箭头等深奥理论。带领读者探索时空本质，感受科学之美。"
+    },
+    {
+        "id": "000000010",
+        "title": "《JavaScript高级程序设计》",
+        "author": "尼古拉斯·泽卡斯",
+        "category": "计算机",
+        "price": 99.00,
+        "publishDate": "2023-01-15",
+        "image": "./images/books/javascript-book.jpg",
+        "description": "涵盖ES6+新特性，深入讲解原型链、闭包、异步编程等核心概念。包含TypeScript集成和现代前端框架原理分析。"
+    },
+    {
+        "id": "000000011",
+        "title": "《战争与和平》",
+        "author": "列夫·托尔斯泰",
+        "category": "经典文学",
+        "price": 65.00,
+        "publishDate": "2019-09-20",
+        "image": "./images/books/war-and-peace.png",
+        "description": "俄罗斯文学巅峰之作，以1812年卫国战争为背景，展现五个贵族家族的命运沉浮。"
+    },
+    {
+        "id": "000000012",
+        "title": "《全球通史》",
+        "author": "斯塔夫里阿诺斯",
+        "category": "历史",
+        "price": 88.00,
+        "publishDate": "2020-11-05",
+        "image": "./images/books/global-history.jpg",
+        "description": "全球史观经典著作，从史前文明到21世纪，揭示不同文明的互动与历史发展规律。"
+    },
+    {
+        "id": "0000000013",
+        "title": "《算法导论》",
+        "author": "托马斯·科尔曼",
+        "category": "计算机",
+        "price": 128.00,
+        "publishDate": "2022-03-18",
+        "image": "./images/books/algorithms.jpg",
+        "description": "计算机算法领域权威教材，涵盖动态规划、图算法、NP完全性等核心内容，含300道编程习题。"
+    },
+    {
+        "id": "000000014",
+        "title": "《平凡的世界》",
+        "author": "路遥",
+        "category": "当代文学",
+        "price": 56.00,
+        "publishDate": "2017-06-12",
+        "image": "./images/books/ordinary-world.jpg",
+        "description": "第三届茅盾文学奖作品，展现改革开放初期中国农村青年奋斗历程的现实主义力作。"
+    },
+    {
+        "id": "0000000015",
+        "title": "《夏洛的网》",
+        "author": "E.B.怀特",
+        "category": "儿童文学",
+        "price": 29.90,
+        "publishDate": "2021-04-23",
+        "image": "./images/books/charlotte-web.jpg",
+        "description": "美国儿童文学经典，讲述小猪威尔伯和蜘蛛夏洛的友谊故事，培养孩子的生命教育观念。"
+    },
+    {
+        "id": "000000016",
+        "title": "《银河帝国》全套",
+        "author": "艾萨克·阿西莫夫",
+        "category": "科幻文学",
+        "price": 180.00,
+        "publishDate": "2021-07-19",
+        "image": "./images/books/galaxy-empire.jpg",
+        "description": "基地系列开篇之作，描绘横跨十万光年的银河帝国兴衰史，机器人三定律发源地。"
+    },
+    {
+        "id": "000000017",
+        "title": "《深度学习》",
+        "author": "伊恩·古德费洛",
+        "category": "计算机",
+        "price": 149.00,
+        "publishDate": "2023-06-20",
+        "image": "./images/books/deep-learning.jpg",
+        "description": "AI领域权威教科书，系统讲解深度前馈网络、卷积网络、递归网络等核心概念与实战案例。"
+    },
+    {
+        "id": "000000018",
+        "title": "《昆虫记》",
+        "author": "法布尔",
+        "category": "科普",
+        "price": 38.00,
+        "publishDate": "2019-08-15",
+        "image": "./images/books/insect-record.jpg",
+        "description": "融合文学性与科学性的昆虫观察笔记，揭示鞘翅目、膜翅目等昆虫的生命智慧与行为奥秘。"
+    },
+    {
+        "id": "000000019",
+        "title": "《长安十二时辰》",
+        "author": "马伯庸",
+        "category": "当代文学",
+        "price": 52.00,
+        "publishDate": "2022-04-10",
+        "image": "./images/books/changan.jpg",
+        "description": "历史悬疑题材佳作，通过24小时长安城反恐行动，再现盛唐时期的社会风貌与市井百态。"
+    },
+    {
+        "id": "000000020",
+        "title": "《罗马帝国衰亡史》",
+        "author": "爱德华·吉本",
+        "category": "历史",
+        "price": 158.00,
+        "publishDate": "2020-12-01",
+        "image": "./images/books/rome-fall.jpg",
+        "description": "西方史学经典巨著，完整记录从安东尼王朝到君士坦丁堡陷落的千年帝国衰亡历程。"
+    },
+    {
+        "id": "000000021",
+        "title": "《安徒生童话》",
+        "author": "安徒生",
+        "category": "儿童文学",
+        "price": 34.90,
+        "publishDate": "2023-03-08",
+        "image": "./images/books/andersen.jpg",
+        "description": "包含《丑小鸭》《海的女儿》等经典篇目，培养儿童想象力与人文情怀的永恒童话集。"
+    },
+    {
+        "id": "000000022",
+        "title": "《悲惨世界》",
+        "author": "雨果",
+        "category": "经典文学",
+        "price": 78.00,
+        "publishDate": "2016-11-25",
+        "image": "./images/books/les-miserables.jpg",
+        "description": "法国浪漫主义文学代表作，通过冉阿让的救赎之路，展现19世纪巴黎社会的人性光辉。"
+    },
+    {
+        "id": "000000023",
+        "title": "《白夜行》",
+        "author": "东野圭吾",
+        "category": "外国文学",
+        "price": 108.00,
+        "publishDate": "2021-09-15",
+        "image": "./images/books/the-night-of-the-hunter.jpg"
+    },
+    {
+        "id": "000000024",
+        "title": "《物种起源》",
+        "author": "达尔文",
+        "category": "科普",
+        "price": 45.00,
+        "publishDate": "2020-05-15",
+        "image": "./images/books/origin-of-species.jpg",
+        "description": "探讨生命起源的科学理论，揭示人类进化史的奥秘。"
+    }
+]

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>在线书店</title>
+    <!-- 生产版本Vue -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div id="app">
+        <!-- 头部 -->
+        <header class="header">
+            <h1 class="chc">在线书店</h1>
+            <div class="header-buttons">
+                <button class="cart-button" @click="toggleView('cart')">
+                    购物车
+                    <span class="cart-badge">{{ cartTotalCount }}</span>
+                </button>
+                <button class="cart-button" @click="toggleView('books')" v-show="currentView === 'cart'">
+                    返回书库
+                </button>
+                <button class="cart-button" @click="toggleView('cart')" v-show="currentView === 'checkout'">
+                    返回购物车
+                </button>
+                <button class="cart-button" @click="toggleView('books')" v-show="currentView === 'detail'">
+                    返回书库
+                </button>
+            </div>
+        </header>
+
+        <!-- 图书列表 -->
+        <div v-show="currentView === 'books'">
+            <section class="search-section">
+                <form class="search-form" @submit.prevent="searchBooks">
+                    <input type="text" class="search-input" v-model="searchParams.title" placeholder="搜索书名...">
+                    <input type="text" class="search-input" v-model="searchParams.author" placeholder="搜索作者...">
+                    <select class="search-input" v-model="searchParams.category">
+                        <option value="">全部分类</option>
+                        <option v-for="category in categories" :value="category">
+                            {{ category }}
+                        </option>
+                    </select>
+                    <select class="search-input" v-model="searchParams.priceRange">
+                        <option value="">价格范围</option>
+                        <option value="low">低于 ¥30</option>
+                        <option value="mid">¥30 - ¥80</option>
+                        <option value="high">高于 ¥80</option>
+                    </select>
+                    <button type="button" class="add-to-cart" @click="resetSearch">
+                        重置
+                    </button>
+                </form>
+            </section>
+
+            <main class="book-grid">
+                <article class="book-card" v-for="book in filteredBooks" :key="book.id">
+                    <div class="book-image">
+                        <img :src="book.image" :alt="book.title" @error="handleImageError">
+                    </div>
+                    <div class="book-info">
+                        <h3 class="book-title">{{ book.title }}</h3>
+                        <p class="book-author">{{ book.author }}</p>
+                        <span class="book-category">{{ book.category }}</span>
+                        <div class="book-footer">
+                            <div class="book-price">¥{{ book.price.toFixed(2) }}</div>
+                            <div class="button-group">
+                                <button class="add-to-cart" @click="addToCart(book.id)">
+                                    加入购物车
+                                </button>
+                                <button class="detail-btn" @click="showBookDetail(book)">
+                                    图书详情
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </main>
+        </div>
+
+        <!-- 购物车 -->
+        <div class="cart-view" v-show="currentView === 'cart'">
+            <h2>我的购物车</h2>
+            <div v-if="cartItems.length === 0" class="empty-cart">
+                购物车为空，快去挑选书籍吧！
+            </div>
+            <template v-else>
+                <div class="cart-item" v-for="item in cartItems" :key="item.id">
+                    <div>
+                        <h3>{{ item.title }}</h3>
+                        <p>单价：¥{{ item.price.toFixed(2) }}</p>
+                    </div>
+                    <div class="cart-item-controls">
+                        <button @click="updateQuantity(item.id, -1)">-</button>
+                        <span>{{ item.quantity }}</span>
+                        <button @click="updateQuantity(item.id, 1)">+</button>
+                        <button @click="removeFromCart(item.id)" style="margin-left: 1rem; color: #e74c3c">
+                            移除
+                        </button>
+                    </div>
+                    <div class="item-total">
+                        ¥{{ (item.price * item.quantity).toFixed(2) }}
+                    </div>
+                </div>
+                <div class="cart-total">
+                    合计总金额：¥{{ cartTotalPrice.toFixed(2) }}
+                    <button class="add-to-cart" style="margin-left: 1.5rem" @click="clearCart">
+                        清空购物车
+                    </button>
+                    <button class="add-to-cart" style="margin-left: 1.5rem" @click="currentView = 'checkout'">
+                        前往结账
+                    </button>
+                </div>
+            </template>
+        </div>
+
+        <!-- 书籍详情页 -->
+        <div class="detail-view" v-show="currentView === 'detail'">
+            <div class="detail-header">
+
+                <h2>{{ selectedBook?.title }}</h2>
+            </div>
+
+            <div class="detail-content" v-if="selectedBook">
+                <div class="detail-main">
+                    <div class="book-image-lg">
+                        <img :src="selectedBook.image" :alt="selectedBook.title" @error="handleImageError">
+                    </div>
+                    <div class="book-meta">
+                        <p class="meta-item">
+                            <span class="meta-label">作者：</span>
+                            {{ selectedBook.author }}
+                        </p>
+                        <p class="meta-item">
+                            <span class="meta-label">分类：</span>
+                            {{ selectedBook.category }}
+                        </p>
+                        <p class="meta-item">
+                            <span class="meta-label">价格：</span>
+                            ¥{{ selectedBook.price.toFixed(2) }}
+                        </p>
+                        <p class="meta-item">
+                            <span class="meta-label">出版日期：</span>
+                            {{ selectedBook.publishDate || '暂无出版日期' }}
+                        </p>
+                        <button class="add-to-cart-lg" @click="addToCart(selectedBook.id)">
+                            加入购物车
+                        </button>
+                    </div>
+                </div>
+                <div class="book-description">
+                    <h3>内容简介</h3>
+                    <p>{{ selectedBook.description || '暂无详细描述' }}</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 结账页面 -->
+        <div class="checkout-view" v-show="currentView === 'checkout'">
+            <h2>结账信息</h2>
+            <button class="back-button" @click="currentView = 'cart'">
+                返回购物车
+            </button>
+
+            <div class="checkout-content">
+                <!-- 订单摘要 -->
+                <section class="order-summary">
+                    <h3>订单摘要</h3>
+                    <div class="summary-item" v-for="item in cartItems" :key="item.id">
+                        <span>{{ item.title }} ×{{ item.quantity }}</span>
+                        <span>¥{{ (item.price * item.quantity).toFixed(2) }}</span>
+                    </div>
+                    <div class="summary-total">
+                        <span>总计：</span>
+                        <span>¥{{ cartTotalPrice.toFixed(2) }}</span>
+                    </div>
+                </section>
+
+                <!-- 用户信息表单 -->
+                <form class="checkout-form" @submit.prevent="submitOrder">
+                    <h3>收货信息</h3>
+                    <div class="form-group">
+                        <label>姓名：</label>
+                        <input type="text" v-model="checkoutInfo.name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>电子邮箱：</label>
+                        <input type="email" v-model="checkoutInfo.email" required>
+                    </div>
+                    <div class="form-group">
+                        <label>配送地址：</label>
+                        <textarea v-model="checkoutInfo.address" required></textarea>
+                    </div>
+
+                    <h3>支付信息</h3>
+                    <div class="form-group">
+                        <label>信用卡号：</label>
+                        <input type="text" v-model="checkoutInfo.cardNumber" pattern="\d{16}"
+                            placeholder="1234123412341234" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>有效期：</label>
+                            <input type="month" v-model="checkoutInfo.expiryDate" required>
+                        </div>
+                        <div class="form-group">
+                            <label>CVC：</label>
+                            <input type="text" v-model="checkoutInfo.cvc" pattern="\d{3}" placeholder="123" required>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="submit-order">提交订单</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./index2.js">  </script>
+</body>
+
+</html>
